@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from '@/components/Hero';
 import ClientMarquee from '@/components/ClientMarquee';
+import AboutSummary from '@/components/AboutSummary';
 import CapabilitiesShowcase from '@/components/CapabilitiesShowcase';
 import ProductConfigurator from '@/components/ProductConfigurator';
 import ContactSection from '@/components/ContactSection';
@@ -14,6 +15,9 @@ export default function HomePage() {
       {/* Infinite Scrolling Client Marquee */}
       <ClientMarquee />
 
+      {/* Chairman Message & Highlights Summary */}
+      <AboutSummary />
+
       {/* State-of-the-Art horizontal scroll capabilities showcase */}
       <CapabilitiesShowcase />
 
@@ -24,7 +28,7 @@ export default function HomePage() {
       <section className="py-16 px-6 sm:px-12 max-w-6xl mx-auto w-full relative z-10">
         <div className="glass-morphic p-8 sm:p-12 rounded-[32px] border border-white/5 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left divide-y sm:divide-y-0 sm:divide-x divide-white/10">
           <div className="pt-6 sm:pt-0 sm:px-6">
-            <div className="text-5xl font-display font-black text-white mb-2">150 MT</div>
+            <div className="text-5xl font-display font-black text-white mb-2">3,500 MT</div>
             <p className="text-zinc-400 font-mono text-xs uppercase tracking-widest">Monthly Manufacturing Capacity</p>
           </div>
           <div className="pt-6 sm:pt-0 sm:px-10">
@@ -87,7 +91,7 @@ export default function HomePage() {
             Secure Your Logistics Supply Chain
           </h2>
           <p className="text-zinc-400 text-base max-w-2xl mx-auto mb-10 relative z-10 leading-relaxed font-sans">
-            Need a reliable box supplier with a capacity of 150 MT/month and zero quality slip-ups? Let&apos;s build a custom sample batch for your procurement verification.
+            Need a reliable box supplier with a capacity of 3,500 MT/month and zero quality slip-ups? Let&apos;s build a custom sample batch for your procurement verification.
           </p>
           <a 
             href="/contact" 

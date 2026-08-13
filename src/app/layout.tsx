@@ -19,8 +19,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Kuber Paper & Pack | High-Performance Corrugated Packaging Solutions",
-  description: "ISO 9001:2015 certified manufacturer of premium B2B corrugated boxes, sheets, and custom packaging solutions with 150 MT/month capacity. Delhi & Sonipat.",
+  title: "Kuber Paper & Pack Pvt. Ltd. | High-Performance Corrugated Packaging Solutions",
+  description: "ISO 9001:2015 certified manufacturer of premium B2B corrugated boxes, sheets, and custom packaging solutions with 3,500 MT/month capacity. Delhi & Sonipat.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

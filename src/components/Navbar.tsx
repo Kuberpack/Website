@@ -53,28 +53,20 @@ export default function Navbar() {
         >
           {/* Logo */}
           <Link href="/" className="group flex items-center gap-3">
-            <svg 
-              viewBox="0 0 100 120" 
-              className="w-6 h-7.5 text-white transition-transform group-hover:scale-105 shrink-0" 
-              fill="none" 
-              strokeLinecap="square"
-            >
-              {/* White parts */}
-              <path d="M 16 10 H 28 V 110 H 16 Z" fill="#ffffff" />
-              <path d="M 61 24 L 81 4 L 93 16 L 73 36 Z" fill="#ffffff" />
-              <path d="M 61 96 L 73 84 L 93 104 L 81 116 Z" fill="#ffffff" />
-
-              {/* Orange parts */}
-              <path d="M 31 10 H 43 V 110 H 31 Z" fill="#E0561B" />
-              <path d="M 37 60 L 61 36 L 73 48 L 49 72 Z" fill="#E0561B" />
-              <path d="M 37 60 L 49 48 L 73 72 L 61 84 Z" fill="#E0561B" />
-            </svg>
+            <Image
+              src="/kuber-logo-mark.png"
+              alt="Kuber Paper & Pack Pvt. Ltd. Logo"
+              width={34}
+              height={34}
+              priority
+              className="object-contain transition-transform group-hover:scale-105 rounded-lg border border-[#E0561B]/20"
+            />
             <div className="flex flex-col">
-              <span className="font-display text-base md:text-lg font-black tracking-tighter text-white transition-all duration-300 group-hover:text-accent-cyber leading-none">
+              <span className="font-display text-base md:text-lg font-black tracking-tighter text-white transition-all duration-300 group-hover:text-accent-cyber leading-none font-bold">
                 KUBER
               </span>
-              <span className="text-[8px] font-mono tracking-widest text-[#E0561B] leading-none mt-0.5">
-                PAPER & PACK
+              <span className="text-[7px] font-mono tracking-widest text-[#E0561B] leading-none mt-1 uppercase font-bold">
+                PAPER & PACK PVT. LTD.
               </span>
             </div>
           </Link>

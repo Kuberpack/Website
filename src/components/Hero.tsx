@@ -7,7 +7,7 @@ import { ArrowRight, Play, Settings } from 'lucide-react';
 
 export default function Hero() {
   const headlineWords = "Next-Generation Corrugated Packaging.".split(" ");
-  const subheadline = "Automated. Solar-Powered. Zero Defects. Scaling your supply chain with 150 MT/month capacity.";
+  const subheadline = "Automated. Solar-Powered. Zero Defects. Scaling your supply chain with 3,500 MT/month capacity.";
 
   // Stagger animation container
   const containerVariants = {
@@ -176,7 +176,7 @@ export default function Hero() {
               >
                 <div className="text-[10px] font-mono text-zinc-900/60 uppercase tracking-widest font-bold">KUBER</div>
                 <div className="text-zinc-900 border border-zinc-900/30 self-start px-2 py-0.5 rounded text-[8px] font-mono font-black uppercase">
-                  150 MT/mo
+                  3,500 MT/mo
                 </div>
               </div>
 

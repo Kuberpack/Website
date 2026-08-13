@@ -15,7 +15,7 @@ export default function AboutPage() {
             Pioneering the Future of <span className="animate-gradient-text">Packaging</span>
           </h1>
           <p className="max-w-3xl text-zinc-400 text-lg leading-relaxed font-sans">
-            Kuber Paper & Pack Pvt. Ltd. is a premier ISO 9001:2015 certified manufacturer of high-quality corrugated boxes, sheets, and custom packaging solutions. Operating with a monthly capacity of 150 MT, we deliver robust, scalable, and environmentally sustainable packaging to industries nationwide.
+            Kuber Paper & Pack Pvt. Ltd. is a premier ISO 9001:2015 certified manufacturer of high-quality corrugated boxes, sheets, and custom packaging solutions. Operating with a monthly capacity of 3,500 MT, we deliver robust, scalable, and environmentally sustainable packaging to industries nationwide.
           </p>
         </header>
 
@@ -31,7 +31,7 @@ export default function AboutPage() {
 
           <div className="glass-morphic p-8 rounded-2xl border border-white/5 hover:border-accent-cyber/30 transition-all duration-300 group">
             <h3 className="font-display text-xl font-bold text-white mb-3 group-hover:text-accent-cyber transition-colors">
-              150 MT / Month Capacity
+              3,500 MT / Month Capacity
             </h3>
             <p className="text-zinc-400 text-sm leading-relaxed">
               Equipped with automatic line machinery, we possess the scalability and muscle to deliver high-volume orders with lightning-fast turnaround times.

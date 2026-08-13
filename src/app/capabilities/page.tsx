@@ -67,7 +67,7 @@ export default function CapabilitiesPage() {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center sm:text-left">
-              <div className="text-accent-cyber font-display text-4xl sm:text-5xl font-black mb-2">150 MT</div>
+              <div className="text-accent-cyber font-display text-4xl sm:text-5xl font-black mb-2">3,500 MT</div>
               <div className="text-zinc-400 text-xs uppercase tracking-widest font-mono">Monthly Capacity</div>
             </div>
             <div className="text-center sm:text-left">
