@@ -31,7 +31,7 @@ export default function CapabilitiesShowcase() {
             Infrastructure & Automation
           </span>
           <h2 className="font-display text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">
-            State-of-the-Art <span className="animate-gradient-text">Infrastructure</span>
+            State-of-the-Art <span className="animate-gradient-text">Manufacturing</span>
           </h2>
         </div>
 

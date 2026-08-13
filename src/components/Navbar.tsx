@@ -59,7 +59,7 @@ export default function Navbar() {
               width={34}
               height={34}
               priority
-              className="object-contain transition-transform group-hover:scale-105 rounded-lg border border-[#E0561B]/20"
+              className="object-contain transition-transform group-hover:scale-105"
             />
             <div className="flex flex-col">
               <span className="font-display text-base md:text-lg font-black tracking-tighter text-white transition-all duration-300 group-hover:text-accent-cyber leading-none font-bold">

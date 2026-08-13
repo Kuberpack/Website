@@ -30,14 +30,14 @@ export default function Loading() {
             duration: 0.8,
             ease: 'easeOut',
           }}
-          className="relative w-28 h-28 border border-[#E0561B]/25 rounded-[20px] bg-black p-4 flex items-center justify-center shadow-[0_0_30px_rgba(224,86,27,0.15)] overflow-hidden"
+          className="relative w-28 h-28 flex items-center justify-center"
         >
           <Image
             src="/kuber-logo-mark.png"
             alt="Kuber Paper & Pack Logo"
             fill
             priority
-            className="object-contain p-4 transition-transform hover:scale-105"
+            className="object-contain"
           />
         </motion.div>
 
