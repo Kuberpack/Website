@@ -12,14 +12,33 @@ export default function ContactSection() {
     message: '',
   });
   const [isSent, setIsSent] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSent(true);
-    setTimeout(() => {
-      setIsSent(false);
-      setFormState({ name: '', company: '', email: '', message: '' });
-    }, 2000);
+    setError('');
+    setIsSending(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || 'Failed to send message.');
+      }
+      setIsSent(true);
+      setTimeout(() => {
+        setIsSent(false);
+        setFormState({ name: '', company: '', email: '', message: '' });
+      }, 2000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to send message.');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -201,11 +220,16 @@ export default function ContactSection() {
                   />
                 </div>
 
+                {error && (
+                  <p className="text-red-400 text-xs font-mono">{error}</p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-4 bg-accent-cyber text-white font-mono font-bold tracking-widest rounded-xl transition-all duration-300 hover:shadow-[0_0_25px_rgba(224,86,27,0.4)] uppercase text-xs flex items-center justify-center gap-2 cursor-pointer"
+                  disabled={isSending}
+                  className="w-full py-4 bg-accent-cyber text-white font-mono font-bold tracking-widest rounded-xl transition-all duration-300 hover:shadow-[0_0_25px_rgba(224,86,27,0.4)] uppercase text-xs flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Corporate Inquiry
+                  {isSending ? 'Sending...' : 'Send Corporate Inquiry'}
                   <Send className="w-4 h-4" />
                 </button>
               </form>

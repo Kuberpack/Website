@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Upload, Send, Package, Layers, Hash, Scale, Compass } from 'lucide-react';
+import { X, Upload, Send, Package, Layers, Hash, Scale, Compass, User, Mail } from 'lucide-react';
 import { useRFQ } from '@/context/RFQContext';
 
 export default function RFQDrawer() {
@@ -15,21 +15,51 @@ export default function RFQDrawer() {
   const [unit, setUnit] = useState<string>('Nos');
   const [dims, setDims] = useState<string>('');
   const [fileName, setFileName] = useState<string>('');
+  const [file, setFile] = useState<File | null>(null);
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [error, setError] = useState<string>('');
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
+      setFile(e.target.files[0]);
       setFileName(e.target.files[0].name);
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      closeRFQ();
-    }, 2000);
+    setError('');
+    setIsSubmitting(true);
+    try {
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('packType', packType);
+      formData.append('ply', ply);
+      formData.append('volume', volume);
+      formData.append('unit', unit);
+      formData.append('dims', dims);
+      if (file) formData.append('file', file);
+
+      const res = await fetch('/api/contact', { method: 'POST', body: formData });
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || 'Failed to submit RFQ.');
+      }
+
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        closeRFQ();
+      }, 2000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to submit RFQ.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -91,6 +121,40 @@ export default function RFQDrawer() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Contact Details */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label htmlFor="rfq-name" className="block text-[10px] font-mono text-zinc-400 uppercase tracking-widest flex items-center gap-1.5">
+                        <User className="w-3.5 h-3.5 text-accent-cyber" />
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        id="rfq-name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm font-mono text-white focus:outline-none focus:border-accent-cyber transition-colors"
+                        placeholder="Jane Doe"
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="rfq-email" className="block text-[10px] font-mono text-zinc-400 uppercase tracking-widest flex items-center gap-1.5">
+                        <Mail className="w-3.5 h-3.5 text-accent-cyber" />
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="rfq-email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm font-mono text-white focus:outline-none focus:border-accent-cyber transition-colors"
+                        placeholder="jane@acme.com"
+                        required
+                      />
+                    </div>
+                  </div>
+
                   {/* Packaging Type */}
                   <div className="space-y-2">
                     <label htmlFor="pack-type" className="block text-[10px] font-mono text-zinc-400 uppercase tracking-widest flex items-center gap-1.5">
@@ -215,12 +279,15 @@ export default function RFQDrawer() {
                     </div>
                   </div>
 
+                  {error && <p className="text-red-400 text-xs font-mono">{error}</p>}
+
                   {/* Estimating submission CTA */}
                   <button
                     type="submit"
-                    className="w-full py-4 bg-[#E0561B] text-white font-mono font-bold tracking-widest rounded-xl transition-all duration-300 hover:shadow-[0_0_25px_rgba(224,86,27,0.4)] uppercase text-xs flex items-center justify-center gap-2 cursor-pointer"
+                    disabled={isSubmitting}
+                    className="w-full py-4 bg-[#E0561B] text-white font-mono font-bold tracking-widest rounded-xl transition-all duration-300 hover:shadow-[0_0_25px_rgba(224,86,27,0.4)] uppercase text-xs flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Submit to Estimating Team
+                    {isSubmitting ? 'Submitting...' : 'Submit to Estimating Team'}
                     <Send className="w-4.5 h-4.5" />
                   </button>
                 </form>
