@@ -41,14 +41,24 @@ export default function CapabilitiesPage() {
         </div>
 
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <div className="glass-morphic p-8 rounded-3xl border border-white/5 hover:border-accent-cyber/20 transition-all duration-300">
-            <span className="text-accent-cyber text-2xl font-mono font-bold">01/</span>
-            <h3 className="font-display text-2xl font-bold text-white mt-4 mb-3">
-              Advanced Fluting & Laminating
-            </h3>
-            <p className="text-zinc-400 leading-relaxed text-sm">
-              We manufacture a comprehensive range of board profiles including narrow A, B, C, and E flutes. Our laminating configurations enable 3-Ply, 5-Ply, and 7-Ply structures tailored to specific weight-bearing and drop-test specifications.
-            </p>
+          <div className="rounded-3xl border border-white/5 overflow-hidden relative group hover:border-accent-cyber/20 transition-all duration-300 min-h-[220px]">
+            <Image
+              src="/images/paper-rolls.webp"
+              alt="Kraft paper reels feeding the corrugator, Kuber Paper & Pack"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black from-40% via-black/75 to-black/20" />
+            <div className="absolute inset-0 p-8 flex flex-col justify-end">
+              <span className="text-accent-cyber text-2xl font-mono font-bold mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">01/</span>
+              <h3 className="font-display text-2xl font-bold text-white mb-3 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+                Advanced Fluting & Laminating
+              </h3>
+              <p className="text-zinc-200 leading-relaxed text-sm drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+                We manufacture a comprehensive range of board profiles including narrow A, B, C, and E flutes. Our laminating configurations enable 3-Ply, 5-Ply, and 7-Ply structures tailored to specific weight-bearing and drop-test specifications.
+              </p>
+            </div>
           </div>
 
           <div className="rounded-3xl border border-white/5 overflow-hidden relative group hover:border-accent-cyber/20 transition-all duration-300 min-h-[220px]">
@@ -71,24 +81,44 @@ export default function CapabilitiesPage() {
             </div>
           </div>
 
-          <div className="glass-morphic p-8 rounded-3xl border border-white/5 hover:border-accent-cyber/20 transition-all duration-300">
-            <span className="text-accent-cyber text-2xl font-mono font-bold">03/</span>
-            <h3 className="font-display text-2xl font-bold text-white mt-4 mb-3">
-              Precision Slotting & Die-Cutting
-            </h3>
-            <p className="text-zinc-400 leading-relaxed text-sm">
-              Our high-accuracy rotary die cutters create complex configurations for telescopic boxes, folder-type boxes, and custom internal partitions/dividers to secure delicate electronic or glassware loads.
-            </p>
+          <div className="rounded-3xl border border-white/5 overflow-hidden relative group hover:border-accent-cyber/20 transition-all duration-300 min-h-[220px]">
+            <Image
+              src="/images/corrugator-line.webp"
+              alt="Corrugating and finishing line, Kuber Paper & Pack"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black from-40% via-black/75 to-black/20" />
+            <div className="absolute inset-0 p-8 flex flex-col justify-end">
+              <span className="text-accent-cyber text-2xl font-mono font-bold mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">03/</span>
+              <h3 className="font-display text-2xl font-bold text-white mb-3 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+                Precision Slotting & Die-Cutting
+              </h3>
+              <p className="text-zinc-200 leading-relaxed text-sm drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+                Our high-accuracy rotary die cutters create complex configurations for telescopic boxes, folder-type boxes, and custom internal partitions/dividers to secure delicate electronic or glassware loads.
+              </p>
+            </div>
           </div>
 
-          <div className="glass-morphic p-8 rounded-3xl border border-white/5 hover:border-accent-cyber/20 transition-all duration-300">
-            <span className="text-accent-cyber text-2xl font-mono font-bold">04/</span>
-            <h3 className="font-display text-2xl font-bold text-white mt-4 mb-3">
-              High-Speed Flexographic Printing
-            </h3>
-            <p className="text-zinc-400 leading-relaxed text-sm">
-              Brand styling matters. Our multi-color flexographic printing machines apply high-contrast, smudge-resistant water-based inks, ensuring that your corporate branding, bar codes, and shipping warnings are instantly scannable.
-            </p>
+          <div className="rounded-3xl border border-white/5 overflow-hidden relative group hover:border-accent-cyber/20 transition-all duration-300 min-h-[220px]">
+            <Image
+              src="/images/board-plant.webp"
+              alt="Production floor with mezzanine board plant, Kuber Paper & Pack"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black from-40% via-black/75 to-black/20" />
+            <div className="absolute inset-0 p-8 flex flex-col justify-end">
+              <span className="text-accent-cyber text-2xl font-mono font-bold mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">04/</span>
+              <h3 className="font-display text-2xl font-bold text-white mb-3 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+                High-Speed Flexographic Printing
+              </h3>
+              <p className="text-zinc-200 leading-relaxed text-sm drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+                Brand styling matters. Our multi-color flexographic printing machines apply high-contrast, smudge-resistant water-based inks, ensuring that your corporate branding, bar codes, and shipping warnings are instantly scannable.
+              </p>
+            </div>
           </div>
         </section>
 
