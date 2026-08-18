@@ -1,4 +1,12 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Products & Packaging Catalog',
+  description:
+    'RSC corrugated boxes, custom die-cut cartons, heavy-duty 7-ply shippers, corrugated sheets, and internal dividers — 12 BF to 40 BF, custom sizes available.',
+  alternates: { canonical: '/products' },
+};
 
 const products = [
   {
