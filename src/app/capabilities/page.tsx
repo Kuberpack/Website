@@ -1,5 +1,13 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'Manufacturing Capabilities',
+  description:
+    'Inside our Sonipat plant: 315 BF fully automatic corrugating, in-house quality lab testing (BF, GSM, RCT), precision die-cutting, and high-speed flexographic printing.',
+  alternates: { canonical: '/capabilities' },
+};
 
 export default function CapabilitiesPage() {
   return (

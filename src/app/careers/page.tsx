@@ -1,5 +1,13 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'Careers',
+  description:
+    'Join Kuber Paper & Pack in Sonipat or Delhi. Current openings in production, quality control, and key accounts at India’s growing corrugated packaging manufacturer.',
+  alternates: { canonical: '/careers' },
+};
 
 const jobs = [
   {
