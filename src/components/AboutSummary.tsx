@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Award, Shield, User, MapPin, Calendar, Activity, Zap } from 'lucide-react';
+import { Shield, MapPin, Calendar, Activity, Zap } from 'lucide-react';
 
 export default function AboutSummary() {
   const containerVariants = {
@@ -73,8 +74,14 @@ export default function AboutSummary() {
 
             {/* Chairman Signature / Identity */}
             <div className="flex items-center gap-4 pt-6 border-t border-white/5">
-              <div className="w-12 h-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-zinc-400">
-                <User className="w-6 h-6 text-[#E0561B]" />
+              <div className="w-12 h-12 rounded-full border border-white/10 relative overflow-hidden shrink-0">
+                <Image
+                  src="/images/chairman.webp"
+                  alt="Murari Lal Agarwalla, Chairman, Kuber Paper & Pack Pvt. Ltd."
+                  fill
+                  className="object-cover"
+                  sizes="48px"
+                />
               </div>
               <div>
                 <h4 className="font-display text-base font-bold text-white uppercase leading-none">

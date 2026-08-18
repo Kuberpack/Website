@@ -1,11 +1,14 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, Settings } from 'lucide-react';
+import VideoModal from '@/components/VideoModal';
 
 export default function Hero() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
   const headlineWords = "Next-Generation Corrugated Packaging.".split(" ");
   const subheadline = "Automated. Solar-Powered. Zero Defects. Scaling your supply chain with 3,500 MT/month capacity.";
 
@@ -47,6 +50,19 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-6 sm:px-12 bg-black overflow-hidden bg-cyber-grid">
+      {/* 0. Real factory photo grounding the hero in reality */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src="/images/factory-aerial.webp"
+          alt="Kuber Paper & Pack manufacturing facility, Sonipat"
+          fill
+          priority
+          className="object-cover opacity-[0.14]"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/85 to-black" />
+      </div>
+
       {/* 1. Animated Ambient Gradient Blobs */}
       <motion.div
         animate={{
@@ -130,13 +146,14 @@ export default function Hero() {
             </Link>
 
             {/* Secondary CTA */}
-            <Link
-              href="/capabilities"
+            <button
+              type="button"
+              onClick={() => setIsVideoOpen(true)}
               className="px-8 py-4 glass-morphic border border-white/10 text-white font-mono font-semibold tracking-widest rounded-full transition-all duration-300 hover:border-accent-cyber/50 hover:bg-white/5 hover:shadow-[0_0_15px_rgba(255,255,255,0.05)] text-center cursor-pointer flex items-center justify-center gap-2"
             >
               <Play className="w-4 h-4 fill-white text-white" />
               Watch Plant Tour
-            </Link>
+            </button>
           </motion.div>
         </motion.div>
 
@@ -241,6 +258,13 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+
+      <VideoModal
+        isOpen={isVideoOpen}
+        onClose={() => setIsVideoOpen(false)}
+        youtubeId="HXkjG1D1XSo"
+        title="Kuber Paper & Pack — Plant Tour"
+      />
     </section>
   );
 }

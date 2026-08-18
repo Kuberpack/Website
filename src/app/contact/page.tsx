@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
+import { MapPin } from 'lucide-react';
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({
@@ -198,33 +200,47 @@ export default function ContactPage() {
             )}
           </section>
 
-          {/* Contact Details */}
-          <section className="lg:col-span-5 space-y-8">
-            <div className="glass-morphic p-8 rounded-3xl border border-white/5">
-              <h3 className="font-display text-lg font-bold text-white mb-4 uppercase tracking-wider border-l-2 border-accent-cyber pl-3">
-                Head Office
-              </h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-6 font-sans">
-                173, Deepali Enclave, Pitampura,<br />Delhi - 110034, India.
-              </p>
-              <div className="space-y-2 text-sm font-mono text-zinc-400 border-t border-white/5 pt-4">
-                <div>Ph: +91-11-47082459</div>
-                <div>Ph: +91-11-42466642</div>
+          {/* Facility photo + condensed contact chips */}
+          <section className="lg:col-span-5 space-y-6">
+            <div className="relative rounded-3xl overflow-hidden border border-white/5 h-[280px] group">
+              <Image
+                src="/images/factory-aerial.webp"
+                alt="Kuber Paper & Pack manufacturing facility, Sonipat"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/5" />
+              <div className="absolute inset-x-0 bottom-0 p-6 space-y-3">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-secondary-kraft shrink-0" />
+                  <span className="text-xs font-mono font-bold text-white uppercase tracking-wider">Head Office — Pitampura, Delhi</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-accent-cyber shrink-0" />
+                  <span className="text-xs font-mono font-bold text-white uppercase tracking-wider">Kami Works — Sonipat, Haryana</span>
+                </div>
               </div>
             </div>
 
-            <div className="glass-morphic p-8 rounded-3xl border border-white/5">
-              <h3 className="font-display text-lg font-bold text-white mb-4 uppercase tracking-wider border-l-2 border-secondary-kraft pl-3">
-                Works (Factory)
-              </h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-6 font-sans">
-                60/7, Kami-Gannaur Road,<br />V.P.O. – Kami, Dist.- Sonipat - 131001, Haryana, India.
-              </p>
-              <div className="space-y-2 text-sm font-mono text-zinc-400 border-t border-white/5 pt-4">
-                <div>Ph: +91-8860602060</div>
-                <div>Email: <a href="mailto:kuberpack@gmail.com" className="text-accent-cyber hover:underline">kuberpack@gmail.com</a></div>
+            <div className="glass-morphic p-6 rounded-3xl border border-white/5 grid grid-cols-3 gap-4 text-center">
+              <div>
+                <div className="text-accent-cyber font-display text-2xl font-black mb-1">3,500 MT</div>
+                <div className="text-zinc-500 text-[9px] uppercase tracking-widest font-mono">Monthly Capacity</div>
+              </div>
+              <div>
+                <div className="text-secondary-kraft font-display text-2xl font-black mb-1">ISO 9001</div>
+                <div className="text-zinc-500 text-[9px] uppercase tracking-widest font-mono">Certified</div>
+              </div>
+              <div>
+                <div className="text-accent-cyber font-display text-2xl font-black mb-1">&lt; 24h</div>
+                <div className="text-zinc-500 text-[9px] uppercase tracking-widest font-mono">RFQ Response</div>
               </div>
             </div>
+
+            <p className="text-zinc-500 text-xs font-mono text-center leading-relaxed">
+              Full contact details, phone lines, and email for both locations are in the footer below.
+            </p>
           </section>
         </div>
       </main>
