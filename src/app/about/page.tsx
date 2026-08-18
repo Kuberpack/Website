@@ -1,6 +1,13 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { Play, Users, Truck } from 'lucide-react';
+import VideoModal from '@/components/VideoModal';
 
 export default function AboutPage() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   return (
     <div className="relative min-h-screen bg-black pt-32 pb-20 px-6 sm:px-12 bg-cyber-grid overflow-hidden">
       {/* Background radial gradient glow */}
@@ -18,6 +25,38 @@ export default function AboutPage() {
             Kuber Paper & Pack Pvt. Ltd. is a premier ISO 9001:2015 certified manufacturer of high-quality corrugated boxes, sheets, and custom packaging solutions. Operating with a monthly capacity of 3,500 MT, we deliver robust, scalable, and environmentally sustainable packaging to industries nationwide.
           </p>
         </header>
+
+        {/* Hero banner: real facility photo with plant tour CTA */}
+        <button
+          type="button"
+          onClick={() => setIsVideoOpen(true)}
+          className="relative w-full h-[300px] sm:h-[420px] rounded-[32px] overflow-hidden border border-white/5 mb-20 group cursor-pointer block text-left"
+        >
+          <Image
+            src="/images/factory-aerial.webp"
+            alt="Kuber Paper & Pack manufacturing facility, Sonipat, Haryana"
+            fill
+            priority
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-accent-cyber/90 flex items-center justify-center shadow-[0_0_40px_rgba(224,86,27,0.5)] group-hover:scale-110 transition-transform duration-300">
+              <Play className="w-6 h-6 sm:w-8 sm:h-8 fill-white text-white ml-1" />
+            </div>
+          </div>
+          <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8 flex items-end justify-between gap-4">
+            <div>
+              <span className="text-[10px] font-mono text-accent-cyber uppercase tracking-widest font-bold block mb-2">
+                Watch — Full Plant Walkthrough
+              </span>
+              <h2 className="font-display text-xl sm:text-3xl font-bold text-white uppercase">
+                60/7 Kami-Gannaur Road, Sonipat
+              </h2>
+            </div>
+          </div>
+        </button>
 
         <section className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           <div className="glass-morphic p-8 rounded-2xl border border-white/5 hover:border-accent-cyber/30 transition-all duration-300 group">
@@ -48,6 +87,71 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Our People: real workforce photos */}
+        <section className="mb-20">
+          <div className="mb-8">
+            <span className="text-accent-cyber uppercase tracking-widest text-xs font-mono font-bold block mb-4 border-l-2 border-accent-cyber pl-3">
+              Our People
+            </span>
+            <h2 className="font-display text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">
+              The Team Behind Every Batch
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="relative rounded-3xl overflow-hidden border border-white/5 h-[280px] group">
+              <Image
+                src="/images/workforce-men.webp"
+                alt="Kuber Paper & Pack production workforce, Sonipat"
+                fill
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+              <div className="absolute bottom-5 left-5 flex items-center gap-2 text-xs font-mono text-white uppercase tracking-widest font-bold">
+                <Users className="w-4 h-4 text-accent-cyber" />
+                Production Floor Crew
+              </div>
+            </div>
+            <div className="relative rounded-3xl overflow-hidden border border-white/5 h-[280px] group">
+              <Image
+                src="/images/workforce-women.webp"
+                alt="Women associates at Kuber Paper & Pack, Sonipat"
+                fill
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+              <div className="absolute bottom-5 left-5 flex items-center gap-2 text-xs font-mono text-white uppercase tracking-widest font-bold">
+                <Users className="w-4 h-4 text-accent-cyber" />
+                Inclusive Workforce
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Logistics trust strip */}
+        <section className="mb-20">
+          <div className="relative rounded-3xl overflow-hidden border border-white/5 h-[260px] group">
+            <Image
+              src="/images/trucks-fleet.webp"
+              alt="Kuber Paper & Pack own delivery fleet"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/5" />
+            <div className="absolute bottom-6 left-6 sm:left-8">
+              <div className="flex items-center gap-2 mb-2 text-xs font-mono text-accent-cyber uppercase tracking-widest font-bold">
+                <Truck className="w-4 h-4" />
+                Own Fleet, Own Schedule
+              </div>
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-white uppercase max-w-lg">
+                Dedicated trucks for on-time, pan-North India delivery
+              </h3>
+            </div>
+          </div>
+        </section>
+
         {/* Vision & Mission section */}
         <section className="glass-morphic rounded-3xl p-8 sm:p-12 border border-white/5 relative overflow-hidden">
           <div className="absolute right-0 bottom-0 w-[300px] h-[300px] bg-secondary-kraft/5 rounded-full blur-[80px] pointer-events-none" />
@@ -71,6 +175,13 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
+
+      <VideoModal
+        isOpen={isVideoOpen}
+        onClose={() => setIsVideoOpen(false)}
+        youtubeId="HXkjG1D1XSo"
+        title="Kuber Paper & Pack — Plant Tour"
+      />
     </div>
   );
 }

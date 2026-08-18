@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import ClientMarquee from '@/components/ClientMarquee';
 import AboutSummary from '@/components/AboutSummary';
 import CapabilitiesShowcase from '@/components/CapabilitiesShowcase';
+import PlantGallery from '@/components/PlantGallery';
 import ProductConfigurator from '@/components/ProductConfigurator';
 import ContactSection from '@/components/ContactSection';
 
@@ -20,6 +21,9 @@ export default function HomePage() {
 
       {/* State-of-the-Art horizontal scroll capabilities showcase */}
       <CapabilitiesShowcase />
+
+      {/* Real photo gallery: plant, people, quality lab, fleet */}
+      <PlantGallery />
 
       {/* B2B Product Configurator Section */}
       <ProductConfigurator />

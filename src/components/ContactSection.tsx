@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Send, Award, Clock } from 'lucide-react';
+import { MapPin, Phone, Send } from 'lucide-react';
 
 export default function ContactSection() {
   const [formState, setFormState] = useState({
@@ -64,87 +65,45 @@ export default function ContactSection() {
         {/* Two Column Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
           
-          {/* Left Column: Location Hubs */}
-          <div className="lg:col-span-5 space-y-6 flex flex-col justify-between">
-            
-            {/* Hub 1: Head Office */}
+          {/* Left Column: Facility photo + condensed location chips */}
+          <div className="lg:col-span-5 flex flex-col">
             <motion.div
-              whileHover={{
-                scale: 1.02,
-                borderColor: 'rgba(224, 86, 27, 0.3)',
-                boxShadow: '0 10px 30px -10px rgba(224, 86, 27, 0.15)',
-              }}
-              transition={{ type: 'spring', stiffness: 350, damping: 22 }}
-              className="glass-morphic p-8 rounded-3xl border border-white/5 flex flex-col justify-between group flex-1"
+              whileHover={{ scale: 1.01 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 22 }}
+              className="relative rounded-3xl overflow-hidden border border-white/5 flex-1 min-h-[340px] group"
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-bold">Logistics & Accounts</span>
-                  <Award className="w-4 h-4 text-secondary-kraft" />
+              <Image
+                src="/images/office-building.webp"
+                alt="Kuber Paper & Pack manufacturing facility reception, Sonipat"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/10" />
+
+              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 space-y-4">
+                <div className="border-t border-white/10 pt-4">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-secondary-kraft shrink-0" />
+                    <span className="text-xs font-mono font-bold text-white uppercase tracking-wider">Head Office — Pitampura, Delhi</span>
+                  </div>
+                  <div className="flex items-center gap-2 pl-5.5 text-xs font-mono text-zinc-300">
+                    <Phone className="w-3 h-3 text-zinc-500" />
+                    <span>+91-11-47082459</span>
+                  </div>
                 </div>
-                <h3 className="font-display text-xl font-bold text-white uppercase mb-3 group-hover:text-accent-cyber transition-colors">
-                  Head Office
-                </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed mb-6 flex gap-2.5 items-start">
-                  <MapPin className="w-5 h-5 text-secondary-kraft shrink-0 mt-0.5" />
-                  <span>
-                    173, Deepali Enclave, Pitampura,<br />
-                    Delhi - 110034, India.
-                  </span>
-                </p>
-              </div>
-              <div className="space-y-2 border-t border-white/5 pt-4 text-xs font-mono text-zinc-400">
-                <div className="flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-zinc-600" />
-                  <span>+91-11-47082459</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-zinc-600" />
-                  <span>+91-11-42466642</span>
+                <div className="border-t border-white/10 pt-4">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-accent-cyber shrink-0" />
+                    <span className="text-xs font-mono font-bold text-white uppercase tracking-wider">Kami Works — Sonipat, Haryana</span>
+                  </div>
+                  <div className="flex items-center gap-2 pl-5.5 text-xs font-mono text-zinc-300">
+                    <Phone className="w-3 h-3 text-zinc-500" />
+                    <span>+91-8860602060</span>
+                  </div>
                 </div>
               </div>
             </motion.div>
-
-            {/* Hub 2: Manufacturing Works */}
-            <motion.div
-              whileHover={{
-                scale: 1.02,
-                borderColor: 'rgba(224, 86, 27, 0.3)',
-                boxShadow: '0 10px 30px -10px rgba(224, 86, 27, 0.15)',
-              }}
-              transition={{ type: 'spring', stiffness: 350, damping: 22 }}
-              className="glass-morphic p-8 rounded-3xl border border-white/5 flex flex-col justify-between group flex-1"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest font-bold">Kami Production Floor</span>
-                  <Clock className="w-4 h-4 text-accent-cyber animate-pulse" />
-                </div>
-                <h3 className="font-display text-xl font-bold text-white uppercase mb-3 group-hover:text-accent-cyber transition-colors">
-                  Kami Works
-                </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed mb-6 flex gap-2.5 items-start">
-                  <MapPin className="w-5 h-5 text-accent-cyber shrink-0 mt-0.5" />
-                  <span>
-                    60/7, Kami-Gannaur Road,<br />
-                    V.P.O. – Kami, Dist.- Sonipat - 131001, Haryana.
-                  </span>
-                </p>
-              </div>
-              <div className="space-y-2 border-t border-white/5 pt-4 text-xs font-mono text-zinc-400">
-                <div className="flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-zinc-600" />
-                  <span>+91-8860602060</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-3.5 h-3.5 text-zinc-600" />
-                  <a href="mailto:kuberpack@gmail.com" className="hover:text-accent-cyber transition-colors">
-                    kuberpack@gmail.com
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-
           </div>
 
           {/* Right Column: Direct Inquiry Form */}

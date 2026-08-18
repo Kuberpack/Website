@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function CapabilitiesPage() {
   return (
@@ -18,6 +19,27 @@ export default function CapabilitiesPage() {
           </p>
         </header>
 
+        {/* Real machine floor banner */}
+        <div className="relative w-full h-[280px] sm:h-[380px] rounded-[32px] overflow-hidden border border-white/5 mb-16">
+          <Image
+            src="/images/manufacturing-floor.webp"
+            alt="Fully automatic corrugating board plant, Kuber Paper & Pack"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+          <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8">
+            <span className="text-[10px] font-mono text-accent-cyber uppercase tracking-widest font-bold block mb-2">
+              315 BF Fully Automatic Board Plant
+            </span>
+            <h2 className="font-display text-xl sm:text-2xl font-bold text-white uppercase">
+              Running at 67 M/min, Sonipat
+            </h2>
+          </div>
+        </div>
+
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <div className="glass-morphic p-8 rounded-3xl border border-white/5 hover:border-accent-cyber/20 transition-all duration-300">
             <span className="text-accent-cyber text-2xl font-mono font-bold">01/</span>
@@ -29,14 +51,24 @@ export default function CapabilitiesPage() {
             </p>
           </div>
 
-          <div className="glass-morphic p-8 rounded-3xl border border-white/5 hover:border-accent-cyber/20 transition-all duration-300">
-            <span className="text-accent-cyber text-2xl font-mono font-bold">02/</span>
-            <h3 className="font-display text-2xl font-bold text-white mt-4 mb-3">
-              Rigorous Quality Lab testing
-            </h3>
-            <p className="text-zinc-400 leading-relaxed text-sm">
-              In-house labs verify Bursting Factor (BF) from 12BF to 35BF, Grammage (GSM) consistency, Ring Crush Test (RCT) values, and box moisture control. Every batch leaves Sonipat with a certified testing certificate.
-            </p>
+          <div className="rounded-3xl border border-white/5 overflow-hidden relative group hover:border-accent-cyber/20 transition-all duration-300 min-h-[220px]">
+            <Image
+              src="/images/quality-lab.webp"
+              alt="In-house quality control and testing lab, Kuber Paper & Pack"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black from-40% via-black/75 to-black/20" />
+            <div className="absolute inset-0 p-8 flex flex-col justify-end">
+              <span className="text-accent-cyber text-2xl font-mono font-bold mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">02/</span>
+              <h3 className="font-display text-2xl font-bold text-white mb-3 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+                Rigorous Quality Lab testing
+              </h3>
+              <p className="text-zinc-200 leading-relaxed text-sm drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+                In-house labs verify Bursting Factor (BF) from 12BF to 35BF, Grammage (GSM) consistency, Ring Crush Test (RCT) values, and box moisture control. Every batch leaves Sonipat with a certified testing certificate.
+              </p>
+            </div>
           </div>
 
           <div className="glass-morphic p-8 rounded-3xl border border-white/5 hover:border-accent-cyber/20 transition-all duration-300">

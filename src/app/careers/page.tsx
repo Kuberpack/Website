@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const jobs = [
   {
@@ -41,6 +42,30 @@ export default function CareersPage() {
             We value high integrity, technical precision, and a proactive safety culture. Join our team at Sonipat or Delhi.
           </p>
         </header>
+
+        {/* Real workforce photos */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
+          <div className="relative rounded-3xl overflow-hidden border border-white/5 h-[240px] group">
+            <Image
+              src="/images/workforce-men.webp"
+              alt="Kuber Paper & Pack production team, Sonipat"
+              fill
+              className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              sizes="(max-width: 640px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+          </div>
+          <div className="relative rounded-3xl overflow-hidden border border-white/5 h-[240px] group">
+            <Image
+              src="/images/workforce-women.webp"
+              alt="Women associates at Kuber Paper & Pack, Sonipat"
+              fill
+              className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              sizes="(max-width: 640px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+          </div>
+        </div>
 
         <section className="space-y-6 mb-16">
           <h2 className="font-display text-2xl font-bold text-white mb-8 border-b border-white/15 pb-4">
